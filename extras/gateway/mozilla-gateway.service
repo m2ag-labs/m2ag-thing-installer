@@ -1,0 +1,24 @@
+[Unit]
+Description=Mozilla WebThings Gateway Client
+After=network.target
+OnFailure=mozilla-iot-gateway
+
+[Service]
+Type=simple
+StandardOutput=journal
+StandardError=journal
+# Edit this line, if needed, to specify what user to run Vaani as
+# If you delete this line, it will run as root
+User=pi
+# Edit this line, if needed, to specify where you installed the server
+WorkingDirectory=/--HOME--/mozilla-iot/gateway
+# Edit this line, if needed, to set the correct path to node
+#ExecStart=/home/pi/mozilla-iot/gateway/run-app.sh
+#m2ag-labs update -- start this way and update node to 12.18.3 to get certs working correctly
+Environment=NODE_EXTRA_CA_CERTS=/--HOME--/.m2ag-labs/ssl/rootca.crt
+ExecStart=/usr/local/bin/node /--HOME--/mozilla-iot/gateway/build/gateway.js
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

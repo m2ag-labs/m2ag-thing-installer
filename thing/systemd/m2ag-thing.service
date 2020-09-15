@@ -1,0 +1,13 @@
+
+[Unit]
+Description=m2ag.labs thing application
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=--HOME--/m2ag-labs
+ExecStart=python3 thing.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

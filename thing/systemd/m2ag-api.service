@@ -1,0 +1,13 @@
+
+[Unit]
+Description=m2ag.labs thing utility api
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=--HOME--/m2ag-labs
+ExecStart=python3 rest-api.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
