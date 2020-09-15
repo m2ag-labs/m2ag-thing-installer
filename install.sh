@@ -23,9 +23,9 @@ sudo pip3 install RPI.GPIO adafruit-blinka psutil
 echo 'flask'
 sudo pip3 install flask htpasswd webthing
 echo 'install services'
-git clone https://github.com/m2ag-labs/m2ag-iot-thing.git "$HOME/m2ag-labs"
-git clone https://github.com/m2ag-labs/m2ag-iot-installer.git "$HOME/m2ag-labs/installer"
-git clone https://github.com/m2ag-labs/m2ag-iot-client.git "$HOME/m2ag-labs/client"
+git clone https://github.com/m2ag-labs/m2ag-thing.git "$HOME/m2ag-labs"
+git clone https://github.com/m2ag-labs/m2ag-thing-installer.git "$HOME/m2ag-labs/installer"
+git clone https://github.com/m2ag-labs/m2ag-thing-client.git "$HOME/m2ag-labs/client"
 echo 'setup systemd'
 # TODO: set correct path in service files
 sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-api.service" /etc/systemd/system/m2ag-api.service
