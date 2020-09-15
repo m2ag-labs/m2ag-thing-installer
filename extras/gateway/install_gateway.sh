@@ -5,7 +5,7 @@ then
     exit
 fi
 echo 'setup systemd'
-sudo cp "$HOME/m2ag-labs/installer/extras/gateway/mozilla-iot-gateway.service" /etc/systemd/system/mozilla-gateway.service
+sudo cp "$HOME/m2ag-labs/installer/extras/gateway/mozilla-gateway.service" /etc/systemd/system/mozilla-gateway.service
 sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/mozilla-gateway.service
 sudo systemctl daemon-reload
 sudo systemctl enable mozilla-gateway
