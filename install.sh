@@ -19,9 +19,14 @@ sudo apt install mc git i2c-tools python3-pip python3-gpiozero nginx apache2-uti
 echo 'install python stuff'
 sudo pip3 install --upgrade setuptools
 echo 'adafruit stuff'
-sudo pip3 install RPI.GPIO adafruit-blinka psutil
+sudo pip3 install RPI.GPIO adafruit-blinka
 echo 'flask'
-sudo pip3 install flask htpasswd webthing
+sudo pip3 install flask htpasswd
+echo 'install other stuff'
+sudo pip3 install psutil pycmdmessenger
+echo 'install webthing dependencies'
+sudo pip3 install pyjwt, ifaddr, jsonschema, pyee, tornado, zeroconf
+
 echo 'install services'
 git clone https://github.com/m2ag-labs/m2ag-thing.git "$HOME/m2ag-labs"
 git clone https://github.com/m2ag-labs/m2ag-thing-installer.git "$HOME/m2ag-labs/installer"
@@ -60,7 +65,7 @@ sudo systemctl enable m2ag-api
 sudo systemctl enable m2ag-thing
 # Start services last
 sudo systemctl start m2ag-api
-# TODO: remove the installer dir
+
 
 
 

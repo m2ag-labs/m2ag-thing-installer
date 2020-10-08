@@ -15,9 +15,6 @@ wget https://raw.githubusercontent.com/m2ag-labs/m2ag-iot-things/master/things/r
 sed -i 's*--HOSTNAME--*'"$HOSTNAME"'*g' raspicam.json
 mv raspicam.json "$HOME/m2ag-labs/config/available/things/"
 # get the ui files
-mkdir "$HOME/m2ag-labs/client/ui/js"
-wget https://raw.githubusercontent.com/m2ag-labs/m2ag-iot-things/master/extras/raspicam/js/nipplejs.js
-mv nipplejs.js "$HOME/m2ag-labs/client/ui/js"
 wget https://raw.githubusercontent.com/m2ag-labs/m2ag-iot-things/master/extras/raspicam/raspicam.html
 mv raspicam.html "$HOME/m2ag-labs/client/ui/"
 
