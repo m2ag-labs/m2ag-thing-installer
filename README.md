@@ -2,6 +2,8 @@
 
 Use install.sh to install base framework
 
+Ensure i2c is enabled on your pi.
+
 This is alpha 3
 
 install with:

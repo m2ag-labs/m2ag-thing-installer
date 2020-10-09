@@ -25,7 +25,7 @@ sudo pip3 install flask htpasswd
 echo 'install other stuff'
 sudo pip3 install psutil pycmdmessenger
 echo 'install webthing dependencies'
-sudo pip3 install pyjwt, ifaddr, jsonschema, pyee, tornado, zeroconf
+sudo pip3 install pyjwt ifaddr jsonschema pyee tornado zeroconf
 
 echo 'install services'
 git clone https://github.com/m2ag-labs/m2ag-thing.git "$HOME/m2ag-labs"
