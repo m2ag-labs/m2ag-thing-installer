@@ -21,9 +21,6 @@ Mozilla image has the benefit of easier wifi setup -- the device will act as a h
 network can be configured. Plus all the update services are enabled and running.
 
 Node needs to be upgraded and npm install rerun to get node extra certs to work
-The nginx config for the client needs to be modified.
-    edit /etc/nginx/sites-available/m2ag-client   -- change the port to 9443 (or other unused port)
-
 Or
 
 Install the gateway minimally on an exiting pi system. Gives a little more flexibility, but will not have

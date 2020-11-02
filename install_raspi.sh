@@ -15,15 +15,15 @@ echo 'update the system'
 sudo apt update
 sudo apt upgrade -y
 echo 'install some tools'
-sudo apt install mc git i2c-tools python3-pip python3-gpiozero nginx apache2-utils -y
+sudo apt install mc git i2c-tools python3-pip python3-gpiozero apache2-utils -y
 echo 'install python stuff'
 sudo pip3 install --upgrade setuptools
 echo 'adafruit stuff'
 sudo pip3 install RPI.GPIO adafruit-blinka
 echo 'flask'
-sudo pip3 install flask htpasswd
+sudo pip3 install flask htpasswd flask-htpasswd
 echo 'install other stuff'
-sudo pip3 install psutil pycmdmessenger
+sudo pip3 install psutil pycmdmessenger requests
 echo 'install webthing dependencies'
 sudo pip3 install pyjwt ifaddr jsonschema pyee tornado zeroconf
 
@@ -40,16 +40,6 @@ sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-thing.service
 # setup nginx http basic auth
 # default user -- pi / raspberry
 cp "$HOME/m2ag-labs/installer/thing/.m2ag-labs/.htpasswd" "$HOME/.m2ag-labs/"
-sudo cp -r "$HOME/m2ag-labs/installer/thing/etc/nginx/sites-available/." /etc/nginx/sites-available
-# setup nginx
-sudo rm -rf /etc/nginx/sites-enabled/default
-sudo ln -s /etc/nginx/sites-available/m2ag-api-proxy /etc/nginx/sites-enabled/
-sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/nginx/sites-available/m2ag-api-proxy
-sudo sed -i 's*--HOSTNAME--*'"$HOSTNAME"'*g' /etc/nginx/sites-available/m2ag-api-proxy
-sudo ln -s /etc/nginx/sites-available/m2ag-client /etc/nginx/sites-enabled/
-sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/nginx/sites-available/m2ag-client
-sudo sed -i 's*--HOSTNAME--*'"$HOSTNAME"'*g' /etc/nginx/sites-available/m2ag-client
-sudo nginx -s reload
 #copy default config:
 cp "$HOME"/m2ag-labs/installer/thing/config_template/server.json "$HOME"/m2ag-labs/config/server.json
 cp "$HOME"/m2ag-labs/installer/thing/config_template/component_map.json "$HOME"/m2ag-labs/config/component_map.json
