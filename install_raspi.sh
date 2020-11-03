@@ -11,6 +11,9 @@ then
     exit
 fi
 
+home=$HOME
+user=$USER
+
 echo 'update the system'
 sudo apt update
 sudo apt upgrade -y
@@ -33,10 +36,12 @@ git clone https://github.com/m2ag-labs/m2ag-thing-installer.git "$HOME/m2ag-labs
 git clone https://github.com/m2ag-labs/m2ag-thing-client.git "$HOME/m2ag-labs/client"
 echo 'setup systemd'
 # TODO: set correct path in service files
-sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-api.service" /etc/systemd/system/m2ag-api.service
-sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-api.service
-sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-thing.service" /etc/systemd/system/m2ag-thing.service
-sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-thing.service
+sudo cp home"/m2ag-labs/installer/thing/systemd/m2ag-builder.service" /etc/systemd/system/m2ag-builder.service
+sudo sed -i 's*--HOME--*'home'*g' /etc/systemd/system/m2ag-builder.service
+sudo sed -i 's*--USER--*'user'*g' /etc/systemd/system/m2ag-builder.service
+sudo cp home"/m2ag-labs/installer/thing/systemd/m2ag-thing.service" /etc/systemd/system/m2ag-thing.service
+sudo sed -i 's*--HOME--*'home'*g' /etc/systemd/system/m2ag-thing.service
+sudo sed -i 's*--USER--*'user'*g' /etc/systemd/system/m2ag-thing.service
 # setup nginx http basic auth
 # default user -- pi / raspberry
 cp "$HOME/m2ag-labs/installer/thing/.m2ag-labs/.htpasswd" "$HOME/.m2ag-labs/"

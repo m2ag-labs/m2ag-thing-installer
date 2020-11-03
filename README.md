@@ -8,4 +8,4 @@ This is alpha 3
 
 install with:
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/master/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/master/install_raspi.sh)"

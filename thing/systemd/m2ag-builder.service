@@ -1,12 +1,12 @@
 
 [Unit]
-Description=m2ag.labs thing application
+Description=m2ag.labs thing builder
 After=network.target
 
 [Service]
 User=--USER--
 WorkingDirectory=--HOME--/m2ag-labs
-ExecStart=python3 thing.py
+ExecStart=python3 builder.py
 Restart=always
 
 [Install]
