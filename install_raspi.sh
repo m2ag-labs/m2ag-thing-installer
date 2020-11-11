@@ -1,4 +1,3 @@
-#!/bin/bash
 #TODO: add prompt if no certs -- continue as non-ssl
 if [[ ! -f "$HOME/.m2ag-labs/ssl/server.crt" ]]
 then
