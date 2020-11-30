@@ -1,3 +1,4 @@
+#!/bin/bash
 #TODO: add prompt if no certs -- continue as non-ssl
 if [[ ! -f "$HOME/.m2ag-labs/ssl/server.crt" ]]
 then
@@ -49,6 +50,7 @@ cp "$HOME"/m2ag-labs/installer/thing/config_template/server.json "$HOME"/m2ag-la
 cp "$HOME"/m2ag-labs/installer/thing/config_template/component_map.json "$HOME"/m2ag-labs/config/component_map.json
 sed -i 's*--HOSTNAME--*'"$HOSTNAME"'*g' "$HOME"/m2ag-labs/config/server.json
 #create needed directories
+mkdir "$HOME"/.m2ag-labs/secrets
 mkdir "$HOME"/m2ag-labs/config/available
 mkdir "$HOME"/m2ag-labs/config/available/components
 mkdir "$HOME"/m2ag-labs/config/available/things
