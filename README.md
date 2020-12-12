@@ -8,4 +8,7 @@ This is alpha 3
 
 install with:
 
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/master/install_raspi.sh)"
+Raspberry PI
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/master/install.sh)"
+
+Mac/Win - experimental installer -- probably won't work  but coming soon.
