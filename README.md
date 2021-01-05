@@ -4,11 +4,12 @@ Use install.sh to install base framework
 
 Ensure i2c is enabled on your pi.
 
-This is alpha 3
+This is alpha 4
 
 install with:
 
-Raspberry PI
+Raspberry PI:
+
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/master/install.sh)"
 
-Mac/Win - experimental installer -- probably won't work  but coming soon.
+Mac - experimental installer -- probably won't work  but coming soon.
