@@ -10,7 +10,7 @@ server {
 
         access_log            /var/log/nginx/m2ag-proxy.access.log;
 
-        
+
         add_header 'Access-Control-Allow-Methods' 'GET,OPTIONS,PUT,DELETE' always;
         add_header 'Access-Control-Allow-Credentials' 'true' always;
         add_header 'Access-Control-Allow-Origin' '$http_origin' always;
@@ -18,7 +18,6 @@ server {
         add_header 'Access-Control-Expose-Headers' 'Authorization,DNT,User-Agent,Keep-Alive,Content-Type,accept,origin,X-Requested-With';
 
         if ($request_method = OPTIONS ) {
-
              return 200;
         }
 
@@ -27,8 +26,11 @@ server {
          proxy_set_header        X-Real-IP $remote_addr;
          proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
          proxy_set_header        X-Forwarded-Proto $scheme;
-
-         proxy_pass          http://127.0.0.1:8091;
+         proxy_pass              http://127.0.0.1:8091;
+         limit_except OPTIONS {
+             auth_basic "--HOSTNAME--";
+             auth_basic_user_file /home/pi/.m2ag-labs/.htpasswd;
+         }
 	}
 
 

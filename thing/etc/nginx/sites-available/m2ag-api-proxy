@@ -10,7 +10,7 @@ server {
 
         access_log            /var/log/nginx/m2ag-proxy.access.log;
 
-        
+
         add_header 'Access-Control-Allow-Methods' 'GET,OPTIONS,PUT,DELETE' always;
         add_header 'Access-Control-Allow-Credentials' 'true' always;
         add_header 'Access-Control-Allow-Origin' '$http_origin' always;
@@ -18,7 +18,6 @@ server {
         add_header 'Access-Control-Expose-Headers' 'Authorization,DNT,User-Agent,Keep-Alive,Content-Type,accept,origin,X-Requested-With';
 
         if ($request_method = OPTIONS ) {
-
              return 200;
         }
 
