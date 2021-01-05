@@ -28,7 +28,7 @@ echo 'install webthing dependencies'
 sudo pip3 install pyjwt ifaddr jsonschema pyee tornado zeroconf
 
 echo 'install services'
-git clone https://github.com/m2ag-labs/m2ag-thing.git "$HOME/m2ag-labs"
+git clone https://github.com/m2ag-labs/m2ag-thing-builder.git "$HOME/m2ag-labs"
 git clone https://github.com/m2ag-labs/m2ag-thing-installer.git "$HOME/m2ag-labs/installer"
 git clone https://github.com/m2ag-labs/m2ag-thing-client.git "$HOME/m2ag-labs/client"
 echo 'setup systemd'
