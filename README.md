@@ -4,7 +4,10 @@ Use install.sh to install base framework
 
 Ensure i2c is enabled on your pi.
 
-This is alpha 4
+This installer assumes self-signed certificates are installed in .m2ag-labs/ssl. File names are server.crt and server.key.
+This [blog post](https://m2aglabs.com/2020/03/13/securing-local-iot-devices/) discusses how to create self-signed certificates
+
+This is alpha 4, 1-6-21 -- some assembly required.
 
 install with:
 
