@@ -1,5 +1,6 @@
 #!/bin/bash
 #TODO: add prompt if no certs -- continue as non-ssl
+#TODO: check for .m2ag-labs/secrets
 if [[ ! -f "$HOME/.m2ag-labs/ssl/server.crt" ]]
 then
     echo "The installer expects to find ~/.m2ag-labs/ssl/server.crt"
@@ -33,11 +34,10 @@ git clone https://github.com/m2ag-labs/m2ag-thing-installer.git "$HOME/m2ag-labs
 git clone https://github.com/m2ag-labs/m2ag-thing-client.git "$HOME/m2ag-labs/client"
 echo 'setup systemd'
 # TODO: set correct path in service files
-sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-api.service" /etc/systemd/system/m2ag-api.service
-sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-api.service
+sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-builder.service" /etc/systemd/system/m2ag-builder.service
+sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-builder.service
 sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-thing.service" /etc/systemd/system/m2ag-thing.service
-sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-thing.service
-# setup nginx http basic auth
+sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-thing.services
 # default user -- pi / raspberry
 cp "$HOME/m2ag-labs/installer/thing/.m2ag-labs/.htpasswd" "$HOME/.m2ag-labs/"
 sudo cp -r "$HOME/m2ag-labs/installer/thing/etc/nginx/sites-available/." /etc/nginx/sites-available
@@ -55,16 +55,17 @@ cp "$HOME"/m2ag-labs/installer/thing/config_template/server.json "$HOME"/m2ag-la
 cp "$HOME"/m2ag-labs/installer/thing/config_template/component_map.json "$HOME"/m2ag-labs/config/component_map.json
 sed -i 's*--HOSTNAME--*'"$HOSTNAME"'*g' "$HOME"/m2ag-labs/config/server.json
 #create needed directories
+mkdir .m2ag-labs/secrets
 mkdir "$HOME"/m2ag-labs/config/available
 mkdir "$HOME"/m2ag-labs/config/available/components
 mkdir "$HOME"/m2ag-labs/config/available/things
 mkdir "$HOME"/m2ag-labs/device/hardware/components
 mkdir "$HOME"/m2ag-labs/device/things/components
 sudo systemctl daemon-reload
-sudo systemctl enable m2ag-api
+sudo systemctl enable m2ag-builder
 sudo systemctl enable m2ag-thing
-# Start services last
-sudo systemctl start m2ag-api
+# Start api service last
+sudo systemctl start m2ag-builder
 
 
 

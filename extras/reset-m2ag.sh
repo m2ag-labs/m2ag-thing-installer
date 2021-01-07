@@ -7,7 +7,7 @@ rm -rf "$HOME/m2ag-labs"
 echo 'install services'
 git clone https://github.com/m2ag-labs/m2ag-thing-builder.git "$HOME/m2ag-labs"
 git clone https://github.com/m2ag-labs/m2ag-thing-installer.git "$HOME/m2ag-labs/installer"
-git clone https://github.com/m2ag-labs/m2ag-thing-client.git "$HOME/m2ag-labs/static"
+git clone https://github.com/m2ag-labs/m2ag-thing-client.git "$HOME/m2ag-labs/client"
 #copy default config:
 cp "$HOME"/m2ag-labs/installer/thing/config_template/server.json "$HOME"/m2ag-labs/config/server.json
 cp "$HOME"/m2ag-labs/installer/thing/config_template/component_map.json "$HOME"/m2ag-labs/config/component_map.json
