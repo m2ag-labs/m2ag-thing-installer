@@ -15,4 +15,6 @@ Raspberry PI:
 
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/master/install.sh)"
 
-Mac - experimental installer -- probably won't work  but coming soon.
+Mac:  
+Experimental installer -- won't work but coming soon.
+
