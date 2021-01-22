@@ -1,6 +1,8 @@
-Raspicam:
+# This project is not compatible with the current architecture. This page will be updated when the rework is done.
 
-remote control camera using a raspberry pi camera
+Rasialarm:
+
+a raspberry pi based alarm clock.
 
 Uses:
 Open source motion library to provide a camera feed.

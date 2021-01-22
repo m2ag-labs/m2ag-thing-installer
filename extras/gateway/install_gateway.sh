@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /
+cd ~
 if [[ ! -f "$HOME/.m2ag-labs/ssl/rootca.crt" ]]
 then
     echo "The installer expects to find ~/.m2ag-labs/ssl/rootca.crt"

@@ -1,4 +1,5 @@
 #!/bin/bash
+cd ~
 "$HOME"/m2ag-labs/installer/extras/motion/install.sh
 #TODO: setup motion file
 

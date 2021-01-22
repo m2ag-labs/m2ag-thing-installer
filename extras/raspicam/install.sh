@@ -1,4 +1,5 @@
 #!/bin/bash
+cd ~
 # TODO: check to see if motion is installed
 "$HOME"/m2ag-labs/installer/extras/motion/install.sh
 #TODO: setup motion file

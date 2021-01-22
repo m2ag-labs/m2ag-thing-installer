@@ -1,3 +1,5 @@
+# This project is not compatible with the current architecture. This page will be updated when the rework is done.
+
 Raspicam:
 
 remote control camera using a raspberry pi camera
