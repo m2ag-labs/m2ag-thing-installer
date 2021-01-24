@@ -16,7 +16,7 @@ WorkingDirectory=/--HOME--/gateway
 #ExecStart=/home/pi/mozilla-iot/gateway/run-app.sh
 #m2ag-labs update -- start this way and update node to 12.18.3 to get certs working correctly
 Environment=NODE_EXTRA_CA_CERTS=/--HOME--/.m2ag-labs/ssl/rootca.crt
-ExecStart=/usr/local/bin/node /--HOME--/gateway/build/gateway.js
+ExecStart=/usr/local/bin/node /--HOME--/gateway/build/app.js
 Restart=always
 RestartSec=10s
 
