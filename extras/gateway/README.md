@@ -15,7 +15,7 @@ bash m2ag-labs/installer/extras/install_node.sh 12.18.3
 Generally, these guides assume ssl is the preferred option and will be geared to that. Access the gateway directly at
 8080 if not using ssl.
 
-To install the gateway minimally on an exiting pi system use teh install_gateway.sh. Gives a little more flexibility, but will not have
+To install the gateway minimally on an exiting pi system use the install_gateway.sh. This install gives a little more flexibility, but will not have
 the auto update or other services that Mozilla image offers.
 
 To install on a Raspbian image (assumes m2ag-builder is installed)
@@ -23,7 +23,7 @@ Ensure the file  ~/.m2ag-labs/ssl/rootca.crt exists.
 ```
 bash m2ag-labs/installer/extras/gateway/install_gateway.sh
 ```
-The service will be m2ag-gateway.service. The ssl port for the gateway will be 8443. Browes to {your device}.local:8443
+The service will be m2ag-gateway.service. The ssl port for the gateway will be 8443. Browse to {your device}.local:8443
 to complete the setup process for the gateway.
 
 There will be no addons installed.
