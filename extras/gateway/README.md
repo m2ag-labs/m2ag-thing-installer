@@ -10,7 +10,7 @@ Nginx is used as a proxy to the gateway locally --  pagekite can still be set up
 Node 12.x needs to be installed so that extra-certs will work with the gateway (for ssl use in the things).  
 If ssl is not to be used, node does not have to be upgraded.
 ```
-bash m2ag-labs/installer/extras/install_node.sh 12.18.3
+bash m2ag-labs/installer/extras/gateway/install_node.sh 12.18.3
 ```
 Generally, these guides assume ssl is the preferred option and will be geared to that. Access the gateway directly at
 8080 if not using ssl.
