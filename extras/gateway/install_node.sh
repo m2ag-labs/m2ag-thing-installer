@@ -6,7 +6,7 @@ else
   echo "Decompressing -- may take a while"
   tar -xzf node-v"$1"-linux-armv7l.tar.gz node-v"$1"-linux-armv7l/
   echo "Copying files"
-  cp -r node-v"$1"-linux-armv7l/* /usr/local/
+  sudo cp -r node-v"$1"-linux-armv7l/* /usr/local/
   echo "Cleaning up"
   rm -rf node-v"$1"-linux-armv7l*
   echo "please log out and in again"
