@@ -7,7 +7,7 @@ OnFailure=webthiongs-iot-gateway
 Type=simple
 StandardOutput=journal
 StandardError=journal
-# Edit this line, if needed, to specify what user to run Vaani as
+# Edit this line, if needed, to specify what user to run as
 # If you delete this line, it will run as root
 User=pi
 # Edit this line, if needed, to specify where you installed the server
