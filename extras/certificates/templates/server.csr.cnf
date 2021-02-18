@@ -1,0 +1,14 @@
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+distinguished_name = dn
+
+[dn]
+C=US
+ST=California
+L=San Jose
+O=m2ag-labs
+OU=iot
+emailAddress=marc@m2ag.net
+CN = --HOSTNAME--.local
