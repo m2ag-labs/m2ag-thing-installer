@@ -5,10 +5,10 @@ default_md = sha256
 distinguished_name = dn
 
 [dn]
-C=US
-ST=California
-L=San Jose
-O=m2ag-labs
-OU=iot
-emailAddress=marc@m2ag.net
+C=--country--
+ST=--state--
+L=--city--
+O=--organization--
+OU=--unit--
+emailAddress=--email--
 CN = --HOSTNAME--.local
