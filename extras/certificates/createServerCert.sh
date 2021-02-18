@@ -4,7 +4,6 @@ then
     echo "please supply the hostname"
     exit
 fi
-
 mkdir devices/"$1"
 echo "$1"
 cp templates/server.csr.cnf server.csr.cnf

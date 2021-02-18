@@ -5,7 +5,7 @@ default_md = sha256
 distinguished_name = dn
 
 [dn]
-C=--country--
+C=AU
 ST=--state--
 L=--city--
 O=--organization--
