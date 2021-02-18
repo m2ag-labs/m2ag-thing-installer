@@ -1,5 +1,7 @@
 # Installs the m2ag.labs webthings based iot framework
 
+Some assembly required!
+
 Use install.sh to install base framework
 
 Ensure i2c is enabled on your pi.
