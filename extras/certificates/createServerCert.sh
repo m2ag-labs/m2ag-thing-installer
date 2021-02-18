@@ -13,7 +13,8 @@ cp templates/v3.ext v3.ext
 sed -i "" 's*--HOSTNAME--*'"$1"'*g' v3.ext
 sed -i "" 's*--HOSTNAME--*'"$1"'*g' server.csr.cnf
 openssl req -new -sha256 -nodes -out server.csr -newkey rsa:2048 -keyout server.key -config server.csr.cnf
-openssl x509 -req -in server.csr -CA rootca/rootCA.pem -CAkey rootkey/rootCA.key -CAcreateserial -out server.crt -days 825 -sha256 -extfile v3.ext
+openssl x509 -req -in server.csr -CA roots/rootCA.pem -CAkey roots/rootCA.key -CAcreateserial -out server.crt -days 825 -sha256 -extfile v3.ext
+mkdir devices/"$1"
 mv server.crt devices/"$1"/server.crt
 mv server.key devices/"$1"/server.key
 rm server.csr
