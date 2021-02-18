@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/main/extras/certificates/getCertFiles.sh
+# bash -c "$(curl -fsSL https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/main/extras/certificates/getCertFiles.sh)"
 if [ ! -d "$HOME/.m2ag-labs/certs" ]; then
     mkdir "$HOME/.m2ag-labs"
     mkdir "$HOME/.m2ag-labs/certs"
 fi
+cd "$HOME/.m2ag-labs/certs"
 echo "$HOME/.m2ag-labs/certs"
 mkdir "templates"
 mkdir "devices"
