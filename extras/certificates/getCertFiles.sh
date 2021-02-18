@@ -13,4 +13,4 @@ wget "https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/main/extr
 wget "https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/main/extras/certificates/templates/server.csr.cnf"
 wget "https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/main/extras/certificates/templates/v3.ext"
 mv server.csr.cnf templates/server.csr.cnf
-mv v3.ext templages/v3.ext
+mv v3.ext templates/v3.ext
