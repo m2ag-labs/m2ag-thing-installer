@@ -17,13 +17,13 @@ import zerorpc
 pixel_pin = board.D18
 
 # The number of NeoPixels
-num_pixels = 4
+num_pixels = 1
 # The order of the pixel colors - RGB or GRB. Some NeoPixels have red and green reversed!
 # For RGBW NeoPixels, simply change the ORDER to RGBW or GRBW.
 ORDER = neopixel.GRB
 pixels = neopixel.NeoPixel(
     pixel_pin, num_pixels, brightness=0.2, auto_write=False, pixel_order=ORDER)
-stop_thread = False
+
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.
@@ -57,65 +57,42 @@ def rainbow_cycle(wait):
 
 
 def run(mode):
-    if mode != 0:
-        while True:
-            if mode == 1:
-                # Comment this line out if you have RGBW/GRBW NeoPixels
-                pixels.fill((255, 0, 0))
-                # Uncomment this line if you have RGBW/GRBW NeoPixels
-                # pixels.fill((255, 0, 0, 0))
-                pixels.show()
-                time.sleep(1)
-
-                # Comment this line out if you have RGBW/GRBW NeoPixels
-                pixels.fill((0, 255, 0))
-                # Uncomment this line if you have RGBW/GRBW NeoPixels
-                # pixels.fill((0, 255, 0, 0))
-                pixels.show()
-                time.sleep(1)
-
-                # Comment this line out if you have RGBW/GRBW NeoPixels
-                pixels.fill((0, 0, 255))
-                # Uncomment this line if you have RGBW/GRBW NeoPixels
-                # pixels.fill((0, 0, 255, 0))
-                pixels.show()
-                time.sleep(1)
-            if mode == 2:
-                rainbow_cycle(0.001)  # rainbow cycle with 1ms delay per step
-                pixels.brightness = 0.1
-            if mode == 3:
-                pixels.fill((255, 0, 0))
-                pixels.show()
-            if mode == 4:
-                pixels.fill((0, 255, 0))
-                pixels.show()
-            if mode == 5:
-                pixels.fill((0, 0, 255))
-                pixels.show()
+    while True:
+        rainbow_cycle(0.001)  # rainbow cycle with 1ms delay per step
 
 
-    else:
-        pixels.fill(0x0000)
-        pixels.show()
-
-
-class HelloRPC(object):
+class NeoRPC(object):
     def __init__(self):
         self.process = None
-        run(0)
+        pixels.fill((0, 0, 0))
+        pixels.show()
 
     def mode(self, pattern):
         if self.process is not None:
             self.process.terminate()
-        if pattern != 0:
+            self.process = None
+        if pattern == 1:  # in conference
             self.process = multiprocessing.Process(target=run, args=(pattern,))
             self.process.start()
         else:
-            run(0)
-
+            if pattern == 0:  # off
+                pixels.fill((0, 0, 0))
+            if pattern == 2:  # green
+                pixels.fill((30, 228, 6))
+            if pattern == 3:  # yellow
+                pixels.fill((255, 255, 10))
+            if pattern == 4:  # Orange
+                pixels.fill((253, 104, 10))
+            if pattern == 5:  # Red
+                pixels.fill((251, 0, 7))
+            if pattern == 6:  # purple
+                pixels.fill((123, 40, 133))
+            if pattern == 7:  # magenta
+                pixels.fill((106, 0, 27))
+            pixels.show()
         return pattern
 
 
-s = zerorpc.Server(HelloRPC())
+s = zerorpc.Server(NeoRPC())
 s.bind("tcp://0.0.0.0:4242")
 s.run()

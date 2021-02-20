@@ -10,7 +10,7 @@ fi
 if [ ! -d "$HOME/.m2ag-labs/services/indicator" ]; then
     mkdir "$HOME/.m2ag-labs/services/indicator"
 fi
-sudo apt install zerorpc
+sudo pip3 install zerorpc
 #get the thing and component
 wget "https://raw.githubusercontent.com/m2ag-labs/m2ag-things/main/components/indicator/indicator.json"
 mv indicator.json m2ag-labs/config/available/components
