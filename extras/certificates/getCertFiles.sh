@@ -15,4 +15,3 @@ wget "https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/main/extr
 mv server.csr.cnf templates/server.csr.cnf
 mv v3.ext templates/v3.ext
 cd
-#
