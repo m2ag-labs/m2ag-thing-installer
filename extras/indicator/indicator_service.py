@@ -22,7 +22,7 @@ num_pixels = 1
 # For RGBW NeoPixels, simply change the ORDER to RGBW or GRBW.
 ORDER = neopixel.GRB
 pixels = neopixel.NeoPixel(
-    pixel_pin, num_pixels, brightness=0.2, auto_write=False, pixel_order=ORDER)
+    pixel_pin, num_pixels, brightness=0.2, auto_write=True, pixel_order=ORDER)
 
 
 def wheel(pos):
@@ -72,30 +72,29 @@ class NeoRPC(object):
             self.process.terminate()
             self.process = None
 
-        if pattern > 6:
+        if pattern < 7:
             if pattern == 0:  # off
                 pixels.fill((0, 0, 0))
-            if pattern == 1:  # green
+            if pattern == 2:  # green
                 pixels.fill((30, 228, 6))
-            if pattern == 2:  # yellow
+            if pattern == 3:  # yellow
                 pixels.fill((255, 255, 10))
-            if pattern == 3:  # Orange
+            if pattern == 4:  # Orange
                 pixels.fill((253, 104, 10))
-            if pattern == 4:  # Red
+            if pattern == 5:  # Red
                 pixels.fill((251, 0, 7))
-            if pattern == 5:  # purple
+            if pattern == 6:  # purple
                 pixels.fill((123, 40, 133))
-            if pattern == 6:  # magenta
+            if pattern == 7:  # magenta
                 pixels.fill((106, 0, 27))
             pixels.show()
-        else:  # animated patterns.
-            if pattern == 7:  # in conference (rainbow)
+        else:
+            if pattern == 7:
                 self.process = multiprocessing.Process(target=run, args=(pattern,))
                 self.process.start()
-
         return pattern
 
 
 s = zerorpc.Server(NeoRPC())
-s.bind("tcp://0.0.0.0:4242")
+s.bind("tcp://127.0.0.1:4242")
 s.run()
