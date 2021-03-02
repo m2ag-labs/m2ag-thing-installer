@@ -75,17 +75,17 @@ class NeoRPC(object):
         if pattern < 7:
             if pattern == 0:  # off
                 pixels.fill((0, 0, 0))
-            if pattern == 2:  # green
+            if pattern == 1:  # green
                 pixels.fill((30, 228, 6))
-            if pattern == 3:  # yellow
+            if pattern == 2:  # yellow
                 pixels.fill((255, 255, 10))
-            if pattern == 4:  # Orange
+            if pattern == 3:  # Orange
                 pixels.fill((253, 104, 10))
-            if pattern == 5:  # Red
+            if pattern == 4:  # Red
                 pixels.fill((251, 0, 7))
-            if pattern == 6:  # purple
+            if pattern == 5:  # purple
                 pixels.fill((123, 40, 133))
-            if pattern == 7:  # magenta
+            if pattern == 6:  # magenta
                 pixels.fill((106, 0, 27))
             pixels.show()
         else:

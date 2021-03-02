@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ -z "$1" ]; then
-  echo "please provide python version -- such as 3.8.7"
+  echo "please provide python version -- such as 3.8.7 or 3.9.2"
 else
   echo "this script will run for a very long time"
   sudo apt-get install -y build-essential tk-dev libncurses5-dev \

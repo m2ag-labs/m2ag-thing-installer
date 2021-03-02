@@ -1,0 +1,13 @@
+
+[Unit]
+Description=m2ag.labs client application
+After=network.target
+
+[Service]
+User=--USER--
+WorkingDirectory=--HOME--/m2ag-labs/client
+ExecStart=python3 server.py static
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

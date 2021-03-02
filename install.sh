@@ -40,6 +40,9 @@ sudo sed -i 's*--USER--*'"$USER"'*g' /etc/systemd/system/m2ag-builder.service
 sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-thing.service" /etc/systemd/system/m2ag-thing.service
 sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-thing.service
 sudo sed -i 's*--USER--*'"$USER"'*g' /etc/systemd/system/m2ag-thing.service
+sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-client.service" /etc/systemd/system/m2ag-client.service
+sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-client.service
+sudo sed -i 's*--USER--*'"$USER"'*g' /etc/systemd/system/m2ag-client.service
 # default user -- pi / raspberry
 cp "$HOME/m2ag-labs/installer/thing/.m2ag-labs/.htpasswd" "$HOME/.m2ag-labs/"
 sudo cp -r "$HOME/m2ag-labs/installer/thing/etc/nginx/sites-available/." /etc/nginx/sites-available
@@ -48,9 +51,6 @@ sudo rm -rf /etc/nginx/sites-enabled/default
 sudo ln -s /etc/nginx/sites-available/m2ag-api-proxy /etc/nginx/sites-enabled/
 sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/nginx/sites-available/m2ag-api-proxy
 sudo sed -i 's*--HOSTNAME--*'"$HOSTNAME"'*g' /etc/nginx/sites-available/m2ag-api-proxy
-sudo ln -s /etc/nginx/sites-available/m2ag-client /etc/nginx/sites-enabled/
-sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/nginx/sites-available/m2ag-client
-sudo sed -i 's*--HOSTNAME--*'"$HOSTNAME"'*g' /etc/nginx/sites-available/m2ag-client
 sudo nginx -s reload
 #copy default config:
 cp "$HOME"/m2ag-labs/installer/thing/config_template/server.json "$HOME"/m2ag-labs/config/server.json
@@ -66,8 +66,10 @@ mkdir "$HOME"/m2ag-labs/device/things/components
 sudo systemctl daemon-reload
 sudo systemctl enable m2ag-builder
 sudo systemctl enable m2ag-thing
+sudo systemctl enable m2ag-client
 # Start api service last
 sudo systemctl start m2ag-builder
+sudo systemctl start m2ag-client
 
 
 
