@@ -22,7 +22,7 @@ num_pixels = 1
 # For RGBW NeoPixels, simply change the ORDER to RGBW or GRBW.
 ORDER = neopixel.GRB
 pixels = neopixel.NeoPixel(
-    pixel_pin, num_pixels, brightness=0.2, auto_write=True, pixel_order=ORDER)
+    pixel_pin, num_pixels, brightness=0.1, auto_write=True, pixel_order=ORDER)
 
 
 def wheel(pos):

@@ -11,6 +11,8 @@ if [ ! -d "$HOME/.m2ag-labs/services/indicator" ]; then
     mkdir "$HOME/.m2ag-labs/services/indicator"
 fi
 sudo pip3 install zerorpc
+sudo pip3 install rpi_ws281x adafruit-circuitpython-neopixel
+sudo python3 -m pip install --force-reinstall adafruit-blinka
 #get the thing and component
 wget "https://raw.githubusercontent.com/m2ag-labs/m2ag-things/main/components/indicator/indicator.json"
 mv indicator.json m2ag-labs/config/available/components
@@ -18,6 +20,7 @@ wget "https://raw.githubusercontent.com/m2ag-labs/m2ag-things/main/components/in
 mv indicator.py m2ag-labs/device/hardware/components
 wget "https://raw.githubusercontent.com/m2ag-labs/m2ag-things/main/things/indicator/indicator.json"
 mv indicator.json m2ag-labs/config/available/things
+sed -i 's*--HOST--*'"$HOSTNAME"'*g' m2ag-labs/config/available/things/indicator.json
 cp "$HOME"/m2ag-labs/installer/extras/indicator/indicator_service.py "$HOME/.m2ag-labs/services/indicator"
 sudo cp "$HOME"/m2ag-labs/installer/extras/indicator/m2ag-indicator.service /etc/systemd/system/m2ag-indicator.service
 sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-indicator.service

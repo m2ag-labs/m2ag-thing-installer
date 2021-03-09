@@ -2,6 +2,7 @@
 # for development -- reset m2ag-labs code but don't do a reinstall of all the services.
 # does not delete .m2ag-labs
 sudo systemctl stop m2ag-thing
+sudo systemctl stop m2ag-client
 sudo systemctl stop m2ag-builder
 rm -rf "$HOME/m2ag-labs"
 echo 'install services'
@@ -19,3 +20,4 @@ mkdir "$HOME"/m2ag-labs/config/available/things
 mkdir "$HOME"/m2ag-labs/device/hardware/components
 mkdir "$HOME"/m2ag-labs/device/things/components
 sudo systemctl start m2ag-builder
+sudo systemctl start m2ag-client

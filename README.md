@@ -17,9 +17,8 @@ To assist with prerequisites try this [doc](https://docs.google.com/document/d/1
 install with:
 
 Raspberry PI:
-
+```
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/m2ag-labs/m2ag-thing-installer/master/install.sh)"
+```
 
-Mac:  
-Experimental installer -- won't work but coming soon.
 
