@@ -11,8 +11,8 @@ StandardError=journal
 # If you delete this line, it will run as root
 User=--USER--
 # Edit this line, if needed, to specify where you installed the server
-WorkingDirectory=/--HOME--/homeassistant
-ExecStart=/--HOME--/homeassistant/bin/hass
+WorkingDirectory=--HOME--/homeassistant
+ExecStart=--HOME--/homeassistant/bin/hass
 Restart=always
 RestartSec=10s
 

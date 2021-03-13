@@ -4,7 +4,7 @@ Description=m2ag.labs indicator service
 After=network.target
 
 [Service]
-WorkingDirectory=/--HOME--/.m2ag-labs/services/indicator
+WorkingDirectory=--HOME--/.m2ag-labs/services/indicator
 ExecStart=python3 indicator_service.py
 Restart=always
 
