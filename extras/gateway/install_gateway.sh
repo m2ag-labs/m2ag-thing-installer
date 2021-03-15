@@ -6,8 +6,8 @@ then
     exit
 fi
 echo "get the code"
-git clone https://github.com/m2ag-labs/webthings-gateway-lite.git gateway
-cd gateway
+git clone https://github.com/m2ag-labs/webthings-gateway-lite.git webthings-gateway-lite
+cd webthings-gateway-lite
 echo "go get a drink -- npm install will run a long time"
 npm install -y
 cd

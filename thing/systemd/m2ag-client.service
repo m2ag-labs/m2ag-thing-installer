@@ -5,8 +5,8 @@ After=network.target
 
 [Service]
 User=--USER--
-WorkingDirectory=--HOME--/m2ag-labs/client
-ExecStart=python3 server.py static
+WorkingDirectory=--HOME--/m2ag-labs
+ExecStart=python3 server.py
 Restart=always
 
 [Install]
