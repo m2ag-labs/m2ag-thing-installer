@@ -33,7 +33,7 @@ git clone https://github.com/m2ag-labs/m2ag-thing-builder.git "$HOME/m2ag-labs"
 git clone https://github.com/m2ag-labs/m2ag-thing-installer.git "$HOME/m2ag-labs/installer"
 git clone https://github.com/m2ag-labs/m2ag-thing-client.git "$HOME/m2ag-labs/client"
 echo 'setup systemd'
-# TODO: set correct path in service files
+# set correct path in service files
 sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-builder.service" /etc/systemd/system/m2ag-builder.service
 sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-builder.service
 sudo sed -i 's*--USER--*'"$USER"'*g' /etc/systemd/system/m2ag-builder.service
@@ -43,6 +43,11 @@ sudo sed -i 's*--USER--*'"$USER"'*g' /etc/systemd/system/m2ag-thing.service
 sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-client.service" /etc/systemd/system/m2ag-client.service
 sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-client.service
 sudo sed -i 's*--USER--*'"$USER"'*g' /etc/systemd/system/m2ag-client.service
+# set logs
+sudo cp "$HOME/m2ag-labs/installer/thing/rsyslog.d/*" /etc/rsyslog.d
+sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/rsyslog.d/m2ag-builder.conf
+sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/rsyslog.d/m2ag-thing.conf
+sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/rsyslog.d/m2ag-client.conf
 # default user -- pi / raspberry
 cp "$HOME/m2ag-labs/installer/thing/.m2ag-labs/.htpasswd" "$HOME/.m2ag-labs/"
 #copy default config:
@@ -51,12 +56,14 @@ cp "$HOME"/m2ag-labs/installer/thing/config_template/component_map.json "$HOME"/
 sed -i 's*--HOSTNAME--*'"$HOSTNAME"'*g' "$HOME"/m2ag-labs/config/server.json
 #create needed directories
 mkdir .m2ag-labs/secrets
+mkdir .m2ag-labs/log
 mkdir "$HOME"/m2ag-labs/config/available
 mkdir "$HOME"/m2ag-labs/config/available/components
 mkdir "$HOME"/m2ag-labs/config/available/things
 mkdir "$HOME"/m2ag-labs/device/hardware/components
 mkdir "$HOME"/m2ag-labs/device/things/components
 sudo systemctl daemon-reload
+sudo systemctrl restart rsyslog.service
 sudo systemctl enable m2ag-builder
 sudo systemctl enable m2ag-thing
 sudo systemctl enable m2ag-client

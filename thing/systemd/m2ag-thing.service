@@ -8,6 +8,9 @@ User=--USER--
 WorkingDirectory=--HOME--/m2ag-labs
 ExecStart=python3 thing.py
 Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=m2ag-thing
 
 [Install]
 WantedBy=multi-user.target

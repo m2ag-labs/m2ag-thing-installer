@@ -7,6 +7,9 @@ After=network.target
 WorkingDirectory=--HOME--/.m2ag-labs/services/indicator
 ExecStart=python3 indicator_service.py
 Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=m2ag-indicator
 
 [Install]
 WantedBy=multi-user.target

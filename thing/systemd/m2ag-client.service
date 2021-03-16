@@ -8,6 +8,9 @@ User=--USER--
 WorkingDirectory=--HOME--/m2ag-labs
 ExecStart=python3 server.py
 Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=m2ag-client
 
 [Install]
 WantedBy=multi-user.target
