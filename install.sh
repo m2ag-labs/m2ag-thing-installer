@@ -44,7 +44,7 @@ sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-client.service" /etc/syste
 sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-client.service
 sudo sed -i 's*--USER--*'"$USER"'*g' /etc/systemd/system/m2ag-client.service
 # set logs
-sudo cp "$HOME/m2ag-labs/installer/thing/rsyslog.d/*" /etc/rsyslog.d
+sudo cp -r "$HOME/m2ag-labs/installer/thing/rsyslog.d/" /etc/rsyslog.d
 sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/rsyslog.d/m2ag-builder.conf
 sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/rsyslog.d/m2ag-thing.conf
 sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/rsyslog.d/m2ag-client.conf
@@ -60,10 +60,10 @@ mkdir .m2ag-labs/log
 mkdir "$HOME"/m2ag-labs/config/available
 mkdir "$HOME"/m2ag-labs/config/available/components
 mkdir "$HOME"/m2ag-labs/config/available/things
-mkdir "$HOME"/m2ag-labs/device/hardware/components
+mkdir "$HOME"/m2ag-labs/device/services/components
 mkdir "$HOME"/m2ag-labs/device/things/components
 sudo systemctl daemon-reload
-sudo systemctrl restart rsyslog.service
+sudo systemctl restart rsyslog.service
 sudo systemctl enable m2ag-builder
 sudo systemctl enable m2ag-thing
 sudo systemctl enable m2ag-client
