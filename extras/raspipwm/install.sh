@@ -1,10 +1,12 @@
 #!/bin/bash
 cd ~
 # TODO: check to see if motion is installed
-"$HOME"/m2ag-labs/installer/extras/motion/install.sh
+
+# "$HOME"/m2ag-labs/installer/extras/motion/install.sh
 #TODO: setup motion file
 
 # get the needed components.
+sudo apt install raspicam
 sudo pip3 install wiringpi
 
 wget https://raw.githubusercontent.com/m2ag-labs/m2ag-things/master/components/raspipwm/init_raspi_hw_pwm.py

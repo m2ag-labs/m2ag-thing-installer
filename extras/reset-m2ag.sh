@@ -17,7 +17,7 @@ sed -i 's*--HOSTNAME--*'"$HOSTNAME"'*g' "$HOME"/m2ag-labs/config/server.json
 mkdir "$HOME"/m2ag-labs/config/available
 mkdir "$HOME"/m2ag-labs/config/available/components
 mkdir "$HOME"/m2ag-labs/config/available/things
-mkdir "$HOME"/m2ag-labs/device/hardware/components
+mkdir "$HOME"/m2ag-labs/device/services/components
 mkdir "$HOME"/m2ag-labs/device/things/components
 sudo systemctl start m2ag-builder
 sudo systemctl start m2ag-client
