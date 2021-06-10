@@ -52,7 +52,7 @@ sudo sed -i 's*--USER--*'"$USER"'*g' /etc/systemd/system/m2ag-client.service
 cp "$HOME/m2ag-labs/installer/thing/.m2ag-labs/.htpasswd" "$HOME/.m2ag-labs/"
 #copy default config:
 cp "$HOME"/m2ag-labs/installer/thing/config_template/server.json "$HOME"/m2ag-labs/config/server.json
-cp "$HOME"/m2ag-labs/installer/thing/config_template/component_map.json "$HOME"/m2ag-labs/config/component_map.json
+cp "$HOME"/m2ag-labs/installer/thing/config_template/enabled.json "$HOME"/m2ag-labs/config/enabled.json
 sed -i 's*--HOSTNAME--*'"$HOSTNAME"'*g' "$HOME"/m2ag-labs/config/server.json
 #create needed directories
 mkdir "$HOME"/.m2ag-labs/secrets
