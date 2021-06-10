@@ -16,7 +16,7 @@ echo 'update the system'
 sudo apt update
 sudo apt upgrade -y
 echo 'install some tools'
-sudo apt install mc git i2c-tools python3-pip python3-gpiozero python3-pigpio apache2-utils  -y
+sudo apt install mc git i2c-tools python3-pip python3-gpiozero python3-pigpio python3-venv apache2-utils  -y
 
 echo 'install services'
 git clone https://github.com/m2ag-labs/m2ag-thing-builder.git "$HOME/m2ag-labs"
