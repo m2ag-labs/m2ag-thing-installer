@@ -12,7 +12,7 @@ This [blog post](https://m2aglabs.com/2020/03/13/securing-local-iot-devices/) di
 
 beta 1 6/10/21
 
-To assist with prerequisites try this [doc](https://docs.google.com/document/d/1IOkm031a4Nz10pL8d6RLf2KLE6ad4fCZOHY0flHtfXE/edit?usp=sharing)
+To assist with prerequisites try this [doc](https://docs.google.com/document/d/1MfYIxnEYlHoLYPp0aK_jBCefJHbil6GVLdsT3CCK7yQ/edit?usp=sharing)
 
 install with:
 
