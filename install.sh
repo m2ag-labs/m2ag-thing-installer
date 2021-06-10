@@ -16,22 +16,27 @@ echo 'update the system'
 sudo apt update
 sudo apt upgrade -y
 echo 'install some tools'
-sudo apt install mc git i2c-tools python3-pip python3-gpiozero apache2-utils  -y
-echo 'install python stuff'
-sudo pip3 install --upgrade setuptools
-echo 'adafruit stuff'
-sudo pip3 install RPI.GPIO adafruit-blinka
-echo 'flask'
-sudo pip3 install flask flask-cors flask-htpasswd htpasswd
-echo 'install other stuff'
-sudo pip3 install psutil pycmdmessenger
-echo 'install webthing dependencies'
-sudo pip3 install pyjwt ifaddr jsonschema pyee tornado zeroconf
+sudo apt install mc git i2c-tools python3-pip python3-gpiozero python3-pigpio apache2-utils  -y
 
 echo 'install services'
 git clone https://github.com/m2ag-labs/m2ag-thing-builder.git "$HOME/m2ag-labs"
 git clone https://github.com/m2ag-labs/m2ag-thing-installer.git "$HOME/m2ag-labs/installer"
 git clone https://github.com/m2ag-labs/m2ag-thing-client.git "$HOME/m2ag-labs/client"
+
+echo 'create virtual environment'
+cd m2ag-labs
+python3 -m venv venv
+source venv/bin/activate
+python3 -m pip install wheel
+pip3 install --upgrade setuptools
+echo 'adafruit stuff'
+pip3 install RPI.GPIO adafruit-blinka
+echo 'flask'
+pip3 install flask flask-cors flask-htpasswd htpasswd
+echo 'install other stuff'
+pip3 install psutil gpiozero pigpio
+echo 'install webthing dependencies'
+pip3 install pyjwt ifaddr jsonschema pyee tornado zeroconf
 echo 'setup systemd'
 # set correct path in service files
 sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-builder.service" /etc/systemd/system/m2ag-builder.service
@@ -43,11 +48,6 @@ sudo sed -i 's*--USER--*'"$USER"'*g' /etc/systemd/system/m2ag-thing.service
 sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-client.service" /etc/systemd/system/m2ag-client.service
 sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-client.service
 sudo sed -i 's*--USER--*'"$USER"'*g' /etc/systemd/system/m2ag-client.service
-# set logs
-sudo cp -r "$HOME"/m2ag-labs/installer/thing/rsyslog.d/* /etc/rsyslog.d
-sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/rsyslog.d/m2ag-builder.conf
-sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/rsyslog.d/m2ag-thing.conf
-sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/rsyslog.d/m2ag-client.conf
 # default user -- pi / raspberry
 cp "$HOME/m2ag-labs/installer/thing/.m2ag-labs/.htpasswd" "$HOME/.m2ag-labs/"
 #copy default config:
@@ -55,15 +55,10 @@ cp "$HOME"/m2ag-labs/installer/thing/config_template/server.json "$HOME"/m2ag-la
 cp "$HOME"/m2ag-labs/installer/thing/config_template/component_map.json "$HOME"/m2ag-labs/config/component_map.json
 sed -i 's*--HOSTNAME--*'"$HOSTNAME"'*g' "$HOME"/m2ag-labs/config/server.json
 #create needed directories
-mkdir .m2ag-labs/secrets
-mkdir .m2ag-labs/log
-mkdir "$HOME"/m2ag-labs/config/available
-mkdir "$HOME"/m2ag-labs/config/available/components
-mkdir "$HOME"/m2ag-labs/config/available/things
-mkdir "$HOME"/m2ag-labs/device/services/components
-mkdir "$HOME"/m2ag-labs/device/things/components
+mkdir "$HOME"/.m2ag-labs/secrets
+mkdir "$HOME"/m2ag-labs/device/available
+mkdir "$HOME"/m2ag-labs/device/helpers
 sudo systemctl daemon-reload
-sudo systemctl restart rsyslog.service
 sudo systemctl enable m2ag-builder
 sudo systemctl enable m2ag-thing
 sudo systemctl enable m2ag-client

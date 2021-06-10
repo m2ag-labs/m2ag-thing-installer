@@ -14,7 +14,7 @@ import zerorpc
 
 # Choose an open pin connected to the Data In of the NeoPixel strip, i.e. board.D18
 # NeoPixels must be connected to D10, D12, D18 or D21 to work.
-pixel_pin = board.D18
+pixel_pin = board.D21
 
 # The number of NeoPixels
 num_pixels = 1
@@ -52,7 +52,6 @@ def rainbow_cycle(wait):
         for i in range(num_pixels):
             pixel_index = (i * 256 // num_pixels) + j
             pixels[i] = wheel(pixel_index & 255)
-        pixels.show()
         time.sleep(wait)
 
 
@@ -65,34 +64,40 @@ class NeoRPC(object):
     def __init__(self):
         self.process = None
         pixels.fill((0, 0, 0))
-        pixels.show()
 
-    def mode(self, pattern):
-        if self.process is not None:
-            self.process.terminate()
-            self.process = None
+    def mode(self, value):
 
-        if pattern < 7:
-            if pattern == 0:  # off
-                pixels.fill((0, 0, 0))
-            if pattern == 1:  # green
-                pixels.fill((30, 228, 6))
-            if pattern == 2:  # yellow
-                pixels.fill((255, 255, 10))
-            if pattern == 3:  # Orange
-                pixels.fill((253, 104, 10))
-            if pattern == 4:  # Red
-                pixels.fill((251, 0, 7))
-            if pattern == 5:  # purple
-                pixels.fill((123, 40, 133))
-            if pattern == 6:  # magenta
-                pixels.fill((106, 0, 27))
-            pixels.show()
-        else:
-            if pattern == 7:
-                self.process = multiprocessing.Process(target=run, args=(pattern,))
-                self.process.start()
-        return pattern
+        if 'brightness' in value:
+            pixels.brightness = value['brightness'] / 100
+            return pixels.brightness * 100
+
+        if 'pattern' in value:
+            pattern = value['pattern']
+
+            if self.process is not None:
+                self.process.terminate()
+                self.process = None
+
+            if pattern < 7:
+                if pattern == 0:  # off
+                    pixels.fill((0, 0, 0))
+                if pattern == 1:  # green
+                    pixels.fill((30, 228, 6))
+                if pattern == 2:  # yellow
+                    pixels.fill((255, 255, 10))
+                if pattern == 3:  # Orange
+                    pixels.fill((253, 104, 10))
+                if pattern == 4:  # Red
+                    pixels.fill((251, 0, 7))
+                if pattern == 5:  # purple
+                    pixels.fill((123, 40, 133))
+                if pattern == 6:  # magenta
+                    pixels.fill((106, 0, 27))
+            else:
+                if pattern == 7:
+                    self.process = multiprocessing.Process(target=run, args=(pattern,))
+                    self.process.start()
+            return pattern
 
 
 s = zerorpc.Server(NeoRPC())

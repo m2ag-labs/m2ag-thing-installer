@@ -6,7 +6,7 @@ After=network.target
 [Service]
 User=--USER--
 WorkingDirectory=--HOME--/m2ag-labs
-ExecStart=python3 thing.py
+ExecStart=--HOME--/m2ag-labs/venv/python thing.py
 Restart=always
 StandardOutput=syslog
 StandardError=syslog
