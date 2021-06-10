@@ -10,7 +10,7 @@ This installer assumes self-signed certificates are installed in .m2ag-labs/ssl.
 
 This [blog post](https://m2aglabs.com/2020/03/13/securing-local-iot-devices/) discusses how to create self-signed certificates
 
-This is alpha 6, 1-22-21.
+beta 1 6/10/21
 
 To assist with prerequisites try this [doc](https://docs.google.com/document/d/1IOkm031a4Nz10pL8d6RLf2KLE6ad4fCZOHY0flHtfXE/edit?usp=sharing)
 
