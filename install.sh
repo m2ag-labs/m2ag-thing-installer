@@ -1,6 +1,8 @@
 #!/bin/bash
 #TODO: add prompt if no certs -- continue as non-ssl
 #TODO: check for .m2ag-labs/secrets
+echo "m2ag.labs thing installer beta 1"
+echo "copyright 2021 https://m2aglabs.com"
 if [[ ! -f "$HOME/.m2ag-labs/ssl/server.crt" ]]
 then
     echo "The installer expects to find ~/.m2ag-labs/ssl/server.crt"
@@ -32,11 +34,14 @@ pip3 install --upgrade setuptools
 echo 'adafruit stuff'
 pip3 install RPI.GPIO adafruit-blinka
 echo 'flask'
+
 pip3 install flask flask-cors flask-htpasswd htpasswd
 echo 'install other stuff'
 pip3 install psutil gpiozero pigpio
 echo 'install webthing dependencies'
 pip3 install pyjwt ifaddr jsonschema pyee tornado zeroconf
+echo 'install indicator support'
+pip3 install zerorpc rpi_ws281x adafruit-circuitpython-neopixel
 echo 'setup systemd'
 # set correct path in service files
 sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-builder.service" /etc/systemd/system/m2ag-builder.service
@@ -48,6 +53,8 @@ sudo sed -i 's*--USER--*'"$USER"'*g' /etc/systemd/system/m2ag-thing.service
 sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-client.service" /etc/systemd/system/m2ag-client.service
 sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-client.service
 sudo sed -i 's*--USER--*'"$USER"'*g' /etc/systemd/system/m2ag-client.service
+sudo cp "$HOME/m2ag-labs/installer/thing/systemd/m2ag-indicator.service" /etc/systemd/system/m2ag-indicator.service
+sudo sed -i 's*--HOME--*'"$HOME"'*g' /etc/systemd/system/m2ag-indicator.service
 # default user -- pi / raspberry
 cp "$HOME/m2ag-labs/installer/thing/.m2ag-labs/.htpasswd" "$HOME/.m2ag-labs/"
 #copy default config:
