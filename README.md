@@ -8,11 +8,11 @@ Ensure i2c is enabled on your pi.
 
 This installer assumes self-signed certificates are installed in .m2ag-labs/ssl. File names are server.crt and server.key.
 
-This [blog post](https://m2aglabs.com/2020/03/13/securing-local-iot-devices/) discusses how to create self-signed certificates
+This [document](https://docs.google.com/document/d/14vuQJgqhT3Ylm6VSoCiv0JzX6T2fNVaKkcaUYLtU_xM/edit?usp=sharing) discusses how to create self-signed certificates
 
 beta 1 6/10/21
 
-To assist with prerequisites try this [doc](https://docs.google.com/document/d/e/2PACX-1vTlw2WPZS36lkDJTlFGO669EHH5NCbk-76RwSg9kdyZ60QY8vEj1O3FCp021VRd7EftiQzNE2SL6d3s/pub)
+To assist with prerequisites try this [doc](https://docs.google.com/document/d/1MfYIxnEYlHoLYPp0aK_jBCefJHbil6GVLdsT3CCK7yQ/edit?usp=sharing)
 
 install with:
 
