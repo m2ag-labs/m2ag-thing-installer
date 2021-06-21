@@ -5,7 +5,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=--HOME--/m2ag-labs
-ExecStart=--HOME--/m2ag-labs/venv/bin/python indicator_service.py
+ExecStart=--HOME--/m2ag-labs/venv/bin/python device/helpers/indicator_service.py
 Restart=always
 StandardOutput=syslog
 StandardError=syslog

@@ -41,6 +41,7 @@ pip3 install psutil gpiozero pigpio
 echo 'install webthing dependencies'
 pip3 install pyjwt ifaddr jsonschema pyee tornado zeroconf
 echo 'install indicator support'
+# todo -- enchance thing installer to install seperately
 pip3 install zerorpc rpi_ws281x adafruit-circuitpython-neopixel
 echo 'setup systemd'
 # set correct path in service files
