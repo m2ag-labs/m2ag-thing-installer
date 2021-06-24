@@ -6,7 +6,7 @@ Use install.sh to install base framework
 
 Ensure i2c is enabled on your pi.
 
-Use ssl is encouraged but not mandatory. Place self-signed certificates in .m2ag-labs/ssl. File names are server.crt and server.key.
+Use of ssl is encouraged but not mandatory. Place self-signed certificates in .m2ag-labs/ssl. File names are server.crt and server.key.
 
 This [document](https://docs.google.com/document/d/14vuQJgqhT3Ylm6VSoCiv0JzX6T2fNVaKkcaUYLtU_xM/edit?usp=sharing) discusses how to create self-signed certificates
 
