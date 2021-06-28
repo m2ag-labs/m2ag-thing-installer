@@ -3,7 +3,7 @@
 #TODO: check for .m2ag-labs/secrets
 echo "m2ag.labs thing installer beta 1"
 echo "copyright 2021 https://m2aglabs.com"
-if [[ ! -f "$HOME/.m2ag-labs/ssl" ]]
+if [ ! -f "$HOME/.m2ag-labs/ssl/server.crt" ] || [ ! -f "$HOME/.m2ag-labs/ssl/server.crt" ];
 then
     echo "No ssl certs found"
     echo "ssl certs should be generated and placed in $HOME/.m2ag-labs/ssl"
