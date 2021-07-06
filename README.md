@@ -14,6 +14,8 @@ beta 1 6/10/21
 
 To assist with prerequisites try this [doc](https://docs.google.com/document/d/1MfYIxnEYlHoLYPp0aK_jBCefJHbil6GVLdsT3CCK7yQ/edit?usp=sharing)
 
+Here is a video [walk through](https://www.youtube.com/watch?v=eedckN2m7Ew) of an install. 
+
 install with:
 
 Raspberry PI:
